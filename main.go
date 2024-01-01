@@ -19,7 +19,7 @@ func main() {
 	e.Use(middleware.Logger())
 
 	// serve pprof endpoints
-	e.GET("/debug/*", echo.WrapHandler(http.DefaultServeMux))
+	e.GET("/debug/pprof", echo.WrapHandler(http.DefaultServeMux))
 
 	e.GET("/", func(c echo.Context) error {
 		e.Logger.Debug(fmt.Sprintf("got %s request\n", c.Path()))
